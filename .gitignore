@@ -1,0 +1,8 @@
+# 忽略自己的临时记录
+.mynote/
+# 忽略vscode插件local history的目录
+.history/
+# 忽略vscode插件unotes的目录
+.unotes/
+# 忽略vscode的配置
+.vscode/

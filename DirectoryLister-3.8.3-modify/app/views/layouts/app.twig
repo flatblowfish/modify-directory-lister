@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8">
+<meta name="description" content="{{ config('meta_description') }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="{{ asset('images/owl.png') }}">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{{ asset('app.css') }}">
+<!-- 安卓手机Chrome浏览器地址栏和安卓手机系统状态栏的主题颜色 -->
+<meta name="theme-color" content="#0284C7">
+
+<script src="{{ asset('app.js') }}" defer></script>
+
+{% if config('google_analytics_id', false) %}
+    {% include 'components/analytics/google.twig' %}
+{% endif %}
+
+{% if config('matomo_analytics_url', false) and config('matomo_analytics_site_id', false) %}
+    {% include 'components/analytics/matomo.twig' %}
+{% endif %}
+
+<title>{{ title }} &bull; {{ config('site_title') }}</title>
+
+<div class="{{ theme }}" x-data="application" x-effect="storeThemeCookie(theme)" :class="{ 'dark': theme === 'dark' }">
+    <div class="flex flex-col min-h-screen font-sans dark:bg-gray-800">
+        {% block content %}{% endblock %}
+    </div>
+</div>
